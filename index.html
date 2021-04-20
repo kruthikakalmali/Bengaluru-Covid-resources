@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CRUD Firebase</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/vendor/font-awesome.min.css">
+	<link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+</head>
+
+<body>
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="#">BENGALURU COVID HELP</a>
+		  </div>
+		  <ul class="nav navbar-nav">
+			<li class="active"><a href="./index.html">HOME</a></li>
+
+			<li ><a href="./hospital.html">HOSPITALS</a></li>
+			<li><a href="./remdesivir.html">REMDESIVIR</a></li>
+			<li><a href="./oxygen.html">OXYGEN CYLINDERS</a></li>
+			<li><a href="./resources.html">OTHER RESOURCES</a></li>
+		  </ul>
+		</div>
+	  </nav>
+
+
+
+      <div class="card"  style="margin-left: 40px;margin-right: 40px;">
+        <div class="card-body">
+          <center>
+            <h1 class="card-header"  >Covid help Bengaluru</h1>
+
+            <h3 class="card-title">This is an entirely crowdsourced site. The creators aren't responsible for any data obtained from this site .Hence,verify before trusting the source</h3>
+            <h3 class="card-title">ಈ ವೆಬ್‌ಸೈಟ್ ಸಂಪೂರ್ಣವಾಗಿ ಕ್ರೌಡ್‌ಸೋರ್ಸ್ ಆಗಿದೆ.ಆದ್ದರಿಂದ ನಂಬುವ ಮೊದಲು ಪರಿಶೀಲಿಸಿ </h3>
+            <h3 class="card-text">Let's help each other out in this crisis situation <br><br>ಈ ಬಿಕ್ಕಟ್ಟಿನ ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ ನಾವು ಪರಸ್ಪರ ಸಹಾಯ ಮಾಡೋಣ</h3>
+            <br>
+            <br>
+            <a href="./hospital.html" class="btn btn-primary">HOSPITALS ಆಸ್ಪತ್ರೆಗಳು</a>
+            <br>
+            <br>
+            <a href="./remdesivir.html" class="btn btn-primary">REMDESIVIR ರಿಮೆಡೆಸಿವಿರ್</a>
+            <br>            <br>
+
+            <a href="./oxygen.html" class="btn btn-primary">OXYGEN ಆಕ್ಸಿಜೆನ್</a>
+            <br>            <br>
+
+            <a href="./resources.html" class="btn btn-primary">OTHER RESOURCES ಇತರ ಸಂಪನ್ಮೂಲಗಳು</a>
+            <br>
+
+          </center>
+
+          <style>
+            .footer {
+              position: fixed;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              background-color: rgb(146, 168, 243);
+              color: rgb(48, 45, 45);
+              text-align: center;
+            }
+            </style>
+            
+            <div class="footer">
+              <h4>Created by ಕೃತಿಕಾ</h4>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+	 <!-- <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=5ebcf9cec0ce760eeb115e094b2336914bd6a1a6'></script> -->
+	 <div class="well"> 
+		<center> <h4>Total number of visitors</h4>
+			<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/819086/t/5"></script>
+	 </center></div>
+	
+
+
+
+	
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+	<script>
+
+		var firebaseConfig = {
+  apiKey: "AIzaSyD3ggyMx1bpzMCM6-fNovxJflEHzJtGomE",
+  authDomain: "covid-bangalore.firebaseapp.com",
+  projectId: "covid-bangalore",
+  storageBucket: "covid-bangalore.appspot.com",
+  messagingSenderId: "848371794126",
+  appId: "1:848371794126:web:5f7e0bd2ff64318fba909f",
+  measurementId: "G-61NB2JMRX9"
+};
+		firebase.initializeApp(firebaseConfig);
+		const db = firebase.firestore();
+	</script>
+	<script src="js/hospital.js"></script>
+</body>
+
+</html>

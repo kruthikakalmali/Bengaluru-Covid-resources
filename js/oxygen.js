@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const employeeRef = db.collection("remdesivir");
+    const employeeRef = db.collection("oxygen");
     let deleteIDs = [];
     let lastVisibleEmployeeSnapShot = {};
 
@@ -64,7 +64,11 @@ $(document).ready(function () {
         <td>${document.data().name}</td>
         <td>${document.data().area}</td>
         <td>${document.data().phone}</td>
-     
+        <td>${document.data().cost}</td>
+        <td>${document.data().deposit}</td>
+        <td>${document.data().pick}</td>
+        <td>${document.data().notes}</td>
+
         <td>
             <a href="#" id="${document.id}" class="edit js-edit-employee"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
             </a>
@@ -100,10 +104,14 @@ $(document).ready(function () {
     // ADD EMPLOYEE
     $("#add-employee-form").submit(function (event) {
         event.preventDefault();
-        db.collection('remdesivir').add({
+        db.collection('oxygen').add({
                 name: $('#hospname').val(),
                 area: $('#hosparea').val(),
                 phone: $('#hospphone').val(),
+                cost: $('#oxycost').val(),
+                deposit: $('#oxydeposit').val(),
+                pick: $('#oxypick').val(),
+                notes: $('#oxynotes').val(),
             }).then(function () {
                 console.log("Document successfully written!");
                 $("#addEmployeeModal").modal('hide');
@@ -124,7 +132,7 @@ $(document).ready(function () {
         event.preventDefault();
         let id = $(this).attr('delete-id');
         if (id != undefined) {
-            db.collection('remdesivir').doc(id).delete()
+            db.collection('oxygen').doc(id).delete()
                 .then(function () {
                     console.log("Document successfully delete!");
                     $("#deleteEmployeeModal").modal('hide');
@@ -135,7 +143,7 @@ $(document).ready(function () {
         } else {
             let checkbox = $('table tbody input:checked');
             checkbox.each(function () {
-                db.collection('remdesivir').doc(this.value).delete()
+                db.collection('oxygen').doc(this.value).delete()
                     .then(function () {
                         console.log("Document successfully delete!");
                     })
@@ -151,11 +159,19 @@ $(document).ready(function () {
     $(document).on('click', '.js-edit-employee', function () {
         let id = $(this).attr('id');
         $('#edit-employee-form').attr('edit-id', id);
-        db.collection('remdesivir').doc(id).get().then(function (document) {
+        db.collection('oxygen').doc(id).get().then(function (document) {
             if (document.exists) {
                 $('#edit-employee-form #hospname').val(document.data().name);
                 $('#edit-employee-form #hosparea').val(document.data().area);
                 $('#edit-employee-form #hospphone').val(document.data().phone);
+                $('#edit-employee-form #oxycost').val(document.data().cost);
+
+                $('#edit-employee-form #oxydeposit').val(document.data().deposit);
+
+                $('#edit-employee-form #oxypick').val(document.data().pick);
+
+                $('#edit-employee-form #oxynotes').val(document.data().notes);
+
                 $('#editEmployeeModal').modal('show');
             } else {
                 console.log("No such document!");
@@ -168,10 +184,15 @@ $(document).ready(function () {
     $("#edit-employee-form").submit(function (event) {
         event.preventDefault();
         let id = $(this).attr('edit-id');
-        db.collection('remdesivir').doc(id).update({
+        db.collection('oxygen').doc(id).update({
             name: $('#edit-employee-form #hospname').val(),
             area: $('#edit-employee-form #hosparea').val(),
             phone: $('#edit-employee-form #hospphone').val(),
+            cost: $('#edit-employee-form #oxycost').val(),
+            deposit: $('#edit-employee-form #oxydeposit').val(),
+            pick: $('#edit-employee-form #oxypick').val(),
+            notes: $('#edit-employee-form #oxynotes').val(),
+
         });
         $('#editEmployeeModal').modal('hide');
     });

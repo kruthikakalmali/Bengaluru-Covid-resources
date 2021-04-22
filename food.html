@@ -20,17 +20,18 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 		  <div class="navbar-header">
-			<a class="navbar-brand" href="#">BENGALURU COVID HELP</a>
+			<a class="navbar-brand" href="#">BENGALURU COVID HELPP</a>
 		  </div>
 		  <ul class="nav navbar-nav">
 			<li><a href="./index.html">HOME</a></li>
 
 			<li ><a href="./hospital.html">HOSPITALS</a></li>
-			<li ><a href="./remdesivir.html">REMDESIVIR</a></li>
-			<li class="active"><a href="./oxygen.html">OXYGEN CYLINDERS</a></li>
-            <li ><a href="./food.html">FOOD DELIVERY</a></li>
+			<li><a href="./remdesivir.html">REMDESIVIR</a></li>
+			<li><a href="./oxygen.html">OXYGEN CYLINDERS</a></li>
+            <li class="active"><a href="./food.html">FOOD DELIVERY</a></li>
 
 			<li><a href="./resources.html">OTHER RESOURCES</a></li>
+
 		  </ul>
 		</div>
 	  </nav>
@@ -44,9 +45,9 @@
 					</div> -->
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-								class="material-icons">&#xE147;</i> <span>Add Oxygen cylinder lead</span></a>
+								class="material-icons">&#xE147;</i> <span>Add New Food lead</span></a>
 						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
-								class="material-icons">&#xE15C;</i> <span>Delete oxygen cylinder lead</span></a>
+								class="material-icons">&#xE15C;</i> <span>Delete Food lead</span></a>
 					</div>
 				</div>
 				<!-- <div class="row">
@@ -67,14 +68,10 @@
 									<label for="selectAll"></label>
 								</span>
 							</th>
-							<th>Pharma/Vendor Name</th>
-							<th>Area/Address</th>
+							<th>Vendor Name</th>
+							<th>Area</th>
 							<th>Phone</th>
-                            <th>Cost</th>
-                            <th>Deposit</th>
-                            <th>Pickup/Delivery</th>
-                            <th>Other notes</th>
-							<!-- <th>Number of beds availaible(if unknown put -)</th> -->
+							<th>Other notes</th>
 							
 							<th>Actions</th>
 						</tr>
@@ -97,6 +94,7 @@
 	</div>
 
 	 <!-- <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=5ebcf9cec0ce760eeb115e094b2336914bd6a1a6'></script> -->
+	 
 	
 
 	<!-- Edit Modal HTML -->
@@ -105,43 +103,26 @@
 			<div class="modal-content">
 				<form id="add-employee-form">
 					<div class="modal-header">
-						<h4 class="modal-title">Add Remdesivir lead</h4>
+						<h4 class="modal-title">Add Food lead</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<label>Pharma Name</label>
+							<label>Vendor Name</label>
 							<input type="text" id="hospname" class="form-control">
 						</div>
 						<div class="form-group">
-							<label>Area/Address</label>
+							<label>Area</label>
 							<input type="text" id="hosparea" class="form-control">
 						</div>
 						<div class="form-group">
 							<label>Phone</label>
 							<input id="hospphone" class="form-control"></input>
 						</div>
-                        <div class="form-group">
-							<label>Cost</label>
-							<input id="oxycost" class="form-control"></input>
-						</div><div class="form-group">
-							<label>Deposit</label>
-							<input id="oxydeposit" class="form-control"></input>
-						</div>
-                        <div class="form-group">
-							<label>Pickup/delivery</label>
-							<input id="oxypick" class="form-control"></input>
-						</div>
-                        <div class="form-group">
-							<label>Notes</label>
-							<input id="oxynotes" class="form-control"></input>
-						</div>
-
-						<!-- <div class="form-group">
-							<label>Number of beds av
-                                ailaible(if unknown put -)</label>
+						<div class="form-group">
+							<label>Other notes)</label>
 							<input type="text" id="hospbeds" class="form-control">
-						</div> -->
+						</div>
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -157,41 +138,26 @@
 			<div class="modal-content">
 				<form id="edit-employee-form">
 					<div class="modal-header">
-						<h4 class="modal-title">Edit Pharma</h4>
+						<h4 class="modal-title">Edit Food lead</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<label>Pharma Name</label>
+							<label>Name</label>
 							<input type="text" id="hospname" class="form-control">
 						</div>
 						<div class="form-group">
-							<label>Area/Address</label>
+							<label>Area</label>
 							<input type="text" id="hosparea" class="form-control">
 						</div>
 						<div class="form-group">
 							<label>Phone</label>
 							<input id="hospphone" class="form-control"></input>
 						</div>
-                        <div class="form-group">
-							<label>Cost</label>
-							<input id="oxycost" class="form-control"></input>
-						</div><div class="form-group">
-							<label>Deposit</label>
-							<input id="oxydeposit" class="form-control"></input>
-						</div>
-                        <div class="form-group">
-							<label>Pickup/delivery</label>
-							<input id="oxypick" class="form-control"></input>
-						</div>
-                        <div class="form-group">
-							<label>Notes</label>
-							<input id="oxynotes" class="form-control"></input>
-						</div>
-						<!-- <div class="form-group">
-							<label>Number of beds availaible(if unknown put -)</label>
+						<div class="form-group">
+							<label>Other notes</label>
 							<input type="text" id="hospbeds" class="form-control">
-						</div> -->
+						</div>
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -207,7 +173,7 @@
 			<div class="modal-content">
 				<form id="delete-employee-form">
 					<div class="modal-header">
-						<h4 class="modal-title">Delete oxygen lead</h4>
+						<h4 class="modal-title">Delete Food lead</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
@@ -242,7 +208,7 @@
 		firebase.initializeApp(firebaseConfig);
 		const db = firebase.firestore();
 	</script>
-	<script src="js/oxygen.js"></script>
+	<script src="js/food.js"></script>
     <style>
         .footer {
           position: fixed;
@@ -254,8 +220,9 @@
           text-align: center;
         }
         </style>
-      	<div class="footer">
-
+        
+        <div class="footer">
+			
 		  <h4>Created by ಕೃತಿಕಾ</h4>
 		</div>
 </body>

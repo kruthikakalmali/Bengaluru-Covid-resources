@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const employeeRef = db.collection("remdesivir");
+    const employeeRef = db.collection("food");
     let deleteIDs = [];
     let lastVisibleEmployeeSnapShot = {};
 
@@ -64,7 +64,7 @@ $(document).ready(function () {
         <td>${document.data().name}</td>
         <td>${document.data().area}</td>
         <td>${document.data().phone}</td>
-     
+        <td>${document.data().beds}</td>
         <td>
             <a href="#" id="${document.id}" class="edit js-edit-employee"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
             </a>
@@ -100,10 +100,11 @@ $(document).ready(function () {
     // ADD EMPLOYEE
     $("#add-employee-form").submit(function (event) {
         event.preventDefault();
-        db.collection('remdesivir').add({
+        db.collection('food').add({
                 name: $('#hospname').val(),
                 area: $('#hosparea').val(),
                 phone: $('#hospphone').val(),
+                beds: $('#hospbeds').val()
             }).then(function () {
                 console.log("Document successfully written!");
                 $("#addEmployeeModal").modal('hide');
@@ -124,7 +125,7 @@ $(document).ready(function () {
         event.preventDefault();
         let id = $(this).attr('delete-id');
         if (id != undefined) {
-            db.collection('remdesivir').doc(id).delete()
+            db.collection('food').doc(id).delete()
                 .then(function () {
                     console.log("Document successfully delete!");
                     $("#deleteEmployeeModal").modal('hide');
@@ -135,7 +136,7 @@ $(document).ready(function () {
         } else {
             let checkbox = $('table tbody input:checked');
             checkbox.each(function () {
-                db.collection('remdesivir').doc(this.value).delete()
+                db.collection('food').doc(this.value).delete()
                     .then(function () {
                         console.log("Document successfully delete!");
                     })
@@ -151,11 +152,12 @@ $(document).ready(function () {
     $(document).on('click', '.js-edit-employee', function () {
         let id = $(this).attr('id');
         $('#edit-employee-form').attr('edit-id', id);
-        db.collection('remdesivir').doc(id).get().then(function (document) {
+        db.collection('food').doc(id).get().then(function (document) {
             if (document.exists) {
                 $('#edit-employee-form #hospname').val(document.data().name);
                 $('#edit-employee-form #hosparea').val(document.data().area);
                 $('#edit-employee-form #hospphone').val(document.data().phone);
+                $('#edit-employee-form #hospbeds').val(document.data().beds);
                 $('#editEmployeeModal').modal('show');
             } else {
                 console.log("No such document!");
@@ -168,10 +170,11 @@ $(document).ready(function () {
     $("#edit-employee-form").submit(function (event) {
         event.preventDefault();
         let id = $(this).attr('edit-id');
-        db.collection('remdesivir').doc(id).update({
+        db.collection('food').doc(id).update({
             name: $('#edit-employee-form #hospname').val(),
             area: $('#edit-employee-form #hosparea').val(),
             phone: $('#edit-employee-form #hospphone').val(),
+            beds: $('#edit-employee-form  #hospbeds').val()
         });
         $('#editEmployeeModal').modal('hide');
     });
